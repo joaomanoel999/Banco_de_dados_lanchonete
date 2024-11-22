@@ -1,6 +1,6 @@
 from banco import criar_conexao
 from tratamento import cls
-from menu import cabecalho
+
 
 # Função para adicionar cliente com nome, telefone e endereço
 def adicionar_cliente(nome_cliente, telefone, endereco):
@@ -20,15 +20,15 @@ def adicionar_cliente(nome_cliente, telefone, endereco):
 def listar_clientes():
     conn = criar_conexao() 
     cur = conn.cursor()
-    cls()
-   
+    
     cur.execute("""SELECT * FROM clientes
                 ORDER BY id_cliente""")
     
     consulta = cur.fetchall()
-    cabecalho('  LISTA DE CLIENTES  ')
+  
     print('')
     for linha in consulta:
+        
         print(linha)
     
     cur.close()

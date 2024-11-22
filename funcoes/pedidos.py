@@ -1,12 +1,12 @@
 from banco import criar_conexao
 from tratamento import cls
-from menu import cabecalho
+
 
 def adicionar_pedido(id_funcionario, id_cliente, id_sanduiche):
     conn = criar_conexao()
     cur = conn.cursor()
     cur.execute("""
-        INSERT INTO clientes (id_funcionario, id_cliente, id_sanduiche 
+        INSERT INTO pedido (id_funcionario, id_clientes, id_sanduiche)
         VALUES (%s, %s, %s)
     """, (id_funcionario, id_cliente, id_sanduiche))
     conn.commit()
@@ -26,10 +26,32 @@ def listar_pedidos():
     
     consulta = cur.fetchall()
 
-    cabecalho('  LISTA DE Pedidos  ')
+  
     print('')
     for linha in consulta:
         print(linha)
     
+    cur.close()
+    conn.close()
+
+def atualizar_pedido(coluna, novo_valor, id_pedido):
+    conn = criar_conexao()
+    cur = conn.cursor()
+    cls()
+    cur.execute(f"""UPDATE pedido SET {coluna} = '{novo_valor}' WHERE id_pedido =  {id_pedido}""")
+    conn.commit()
+    print('Pedido atualizado com sucesso!')
+    cls()
+    cur.close()
+    conn.close()
+
+def remover_pedido(id_pedido):
+    conn = criar_conexao()
+    cur = conn.cursor()
+    cls()
+    cur.execute(f"""DELETE FROM pedido WHERE id_pedido = {id_pedido} """)
+    conn.commit()
+    print('Pedido removido com sucesso !')
+    cls()
     cur.close()
     conn.close()

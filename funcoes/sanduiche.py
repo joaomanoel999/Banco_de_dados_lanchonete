@@ -1,6 +1,6 @@
 from banco import criar_conexao
 from tratamento import cls
-from menu import cabecalho
+
 
 # Função para adicionar sanduíche com nome e valor
 def adicionar_sanduiche(nome_sanduiche, valor_sanduiche):
@@ -21,13 +21,13 @@ def adicionar_sanduiche(nome_sanduiche, valor_sanduiche):
 def listar_sanduiche():
     conn = criar_conexao() 
     cur = conn.cursor()
-    cls()
+    
     cur.execute("""SELECT * FROM sanduiche
                 ORDER BY id_sanduiche""")
     
     consulta = cur.fetchall()
 
-    cabecalho('  LISTA DE SANDUICHES ')
+  
     print('')
     for linha in consulta:
         print(linha)
@@ -52,7 +52,7 @@ def remover_sanduiche(id_sanduiche):
     cls()
     cur.execute(f"""DELETE FROM sanduiche WHERE id_sanduiche = {id_sanduiche} """)
     conn.commit()
-    print('Sansuiche removido com sucesso !')
+    print('Sanduiche removido com sucesso !')
     cls()
     cur.close()
     conn.close()

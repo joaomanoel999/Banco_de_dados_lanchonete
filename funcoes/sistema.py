@@ -1,126 +1,80 @@
-from funcionario import adicionar_funcionario, listar_funcionario, atualizar_funcionario, remover_funcionario
-from clientes import adicionar_cliente, listar_clientes, atualizar_clientes, lista_pedidos_cliente, remover_cliente
-from sanduiche import adicionar_sanduiche, listar_sanduiche, atualizar_sanduiche, remover_sanduiche
-from pedidos import adicionar_pedido, listar_pedidos
-from venda import adicionar_venda, listar_venda
-from menu import menu
+
+from menu import  logar, gerenciamento_funcionarios,menu_up,gerenciamento_clientes,gerenciamento_pedidos,gerenciamento_sanduiche,gerenciamento_vendas
 from tratamento import input_int, cls
 
-lista = []
+import os
+import time
 
-menu(lista)
+lista_venda =[]
+lista_cliente = []
+lista_funcionario= []
+lista_pedido = []
+lista_sanduiche = []
+lista_menu = []
+escolha = int
 
 while True:
-        escolha = input_int("digite uma opção: ")
-
+       if escolha == 0:
+              break
        
-        if escolha == 1:
-                nome_funcionario = input("Nome do Funcionário: ")
-                cpf = input("CPF do Funcionário: ")
-                email = input("Email do Funcionário: ")
-                salario = int(input("Salário do Funcionário: "))
-                data_nasc = input("Data de Nascimento (YYYY-MM-DD): ")
-                adicionar_funcionario(nome_funcionario, cpf, email, salario, data_nasc)
-                
-            
-        elif escolha == 2:
-                nome_cliente = input("Nome do Cliente: ")
-                telefone = input("Telefone do Cliente: ")
-                endereco = input("Endereço do Cliente: ")
-                adicionar_cliente(nome_cliente, telefone, endereco)
-                
-            
-        elif escolha == 3:
-                nome_sanduiche = input("Nome do Sanduíche: ")
-                valor_sanduiche = float(input("Valor do Sanduíche: "))
-                adicionar_sanduiche(nome_sanduiche, valor_sanduiche)
-
-        elif escolha == 4:
-               adicionar_pedido # Feito , precisa de ajuste
-
-
-        elif escolha == 5:
-               adicionar_venda # Feito precisa de ajuste
-                
-
-        elif escolha == 6:
-               listar_funcionario()
-               break
+       autenticado = logar()
+       if autenticado:
+              print('Logado com sucesso!')
+              cls()
               
 
-        elif escolha == 7:
-               listar_clientes()
-               break
+              menu_up(lista_menu)
 
+              while True:
+                     escolha = input_int("digite uma opção: ")
+                     
 
-        elif escolha == 8:
-               listar_sanduiche()
-               break
-        
+                     if escolha ==0:
+                            print('saindo...')
+                            break
 
-        elif escolha == 9:
-               listar_pedidos()   # Falta teste
-               break
-        
+                     elif escolha ==1:
 
-        elif escolha == 10:
-               listar_venda()
-               break
-        
+                            print('Carregando...')
+                            cls()
+                            gerenciamento_funcionarios(lista_funcionario)
+                            menu_up(lista_menu)
 
-        elif escolha == 11:
-               coluna = input('digite o nome da coluna: ')
-               novo_valor = input('digite o novo valor do campo: ')
-               id_cliente = input_int('Agora digite o numero do seu ID: ')
-               
-               atualizar_clientes(coluna, novo_valor, id_cliente)
-               break
-        
-        
-        elif escolha == 12:
-               coluna = input('digite o nome da coluna: ')
-               novo_valor = input('digite o novo valor do campo: ')
-               id_funcionario = input_int('Agora digite o numero do seu ID: ')
-               atualizar_funcionario(coluna, novo_valor, id_funcionario)
+                     elif escolha == 2:
 
-               break
-        
-        
-        elif escolha == 13:
-               coluna = input('digite o nome da coluna: ')
-               novo_valor = input('digite o novo valor do campo: ')
-               id_sanduiche = input_int('Agora digite o numero do seu ID: ')
-               atualizar_sanduiche(coluna, novo_valor, id_sanduiche)
-               break
-        elif escolha == 14:
-              nome_cliente = input('digite o nome do cliente que deseja procurar: ')
-              lista_pedidos_cliente(nome_cliente)
-        
+                            print('Carregando...')
+                            cls()
+                            gerenciamento_clientes(lista_cliente)
+                            menu_up(lista_menu)
 
-        elif escolha == 0:
-               print('saindo...')
-               break
-        
+                     elif escolha ==3:
 
-        elif escolha == 15:
-               id_cliente = input('digite o ID do cliente para remover: ')
-               remover_cliente(id_cliente)
-               break
+                            print('Carregando...')
+                            cls()
+                            gerenciamento_pedidos(lista_pedido)       
+                            menu_up(lista_menu)
 
+                     elif escolha ==4:
 
-        elif escolha == 16:
-              id_funcionario = input("digite o ID do funcionario: ")
-              remover_funcionario(id_funcionario)
-              break
+                            print('Carregando...')
+                            gerenciamento_sanduiche(lista_sanduiche)
+                            menu_up(lista_menu)
 
-       
-        elif escolha == 17:
-              id_sanduiche = input("Digite o ID do sanduiche: ")
-              remover_sanduiche(id_sanduiche)
-              break
-
- 
-        else:
-             print("Valor invalido, Tente novamente")
-             cls()
-        menu(lista)
+                     elif escolha == 5:
+                            
+                            print('Carregando...')
+                            cls()
+                            gerenciamento_vendas(lista_venda)
+                            menu_up(lista_menu)
+                            
+                     else:
+                            print("Valor invalido, Tente novamente")
+                            cls()
+                            menu_up(lista_menu)
+                            
+       else:
+              print('email ou senha invalidas!')
+              print('Tente Novamente!')
+              cls()
+              menu_up(lista_menu)
+              

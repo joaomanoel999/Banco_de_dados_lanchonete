@@ -1,14 +1,14 @@
 from banco import criar_conexao
 from tratamento import cls
-from menu import cabecalho
 
 
 
-def adicionar_venda(id_pedido, valor_venda, forma_pagamento):
+
+def adicionar_venda(id_pedido, valor_venda, forma_pagamento): #  FEITO
     conn = criar_conexao()
     cur = conn.cursor()
     cur.execute("""
-        INSERT INTO clientes (id_pedido, valor_venda, forma_pagamento
+        INSERT INTO venda (id_pedido, valor_venda, forma_pagamento)
         VALUES (%s, %s, %s)
     """, (id_pedido, valor_venda, forma_pagamento))
     conn.commit()
@@ -17,7 +17,7 @@ def adicionar_venda(id_pedido, valor_venda, forma_pagamento):
     cur.close()
     conn.close()
     
-def listar_venda(): 
+def listar_venda(): #  FEITO
     conn = criar_conexao()
     cur = conn.cursor()
 
@@ -28,11 +28,33 @@ def listar_venda():
     
     consulta = cur.fetchall()
 
-    cabecalho('  LISTA DE Vendas  ')
     print('')
     for linha in consulta:
         print(linha)
     
     cur.close()
     conn.close()
-    
+
+
+def atualizar_venda(coluna, novo_valor, id_venda):
+    conn = criar_conexao()
+    cur = conn.cursor()
+    cls()
+    cur.execute(f"""UPDATE venda SET {coluna} = '{novo_valor}' WHERE id_venda =  {id_venda}""")
+    conn.commit()
+    print('Venda atualizada com sucesso!')
+    cls()
+    cur.close()
+    conn.close()
+
+
+def remover_venda(id_venda):
+    conn = criar_conexao()
+    cur = conn.cursor()
+    cls()
+    cur.execute(f"""DELETE FROM venda WHERE id_venda = {id_venda} """)
+    conn.commit()
+    print('Venda removida com sucesso !')
+    cls()
+    cur.close()
+    conn.close()

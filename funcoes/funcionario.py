@@ -1,6 +1,6 @@
 from banco import criar_conexao
 from tratamento import cls
-from menu import cabecalho
+
 
 
 def adicionar_funcionario(nome_funcionario, cpf, email, salario, data_nasc):
@@ -20,13 +20,13 @@ def adicionar_funcionario(nome_funcionario, cpf, email, salario, data_nasc):
 def listar_funcionario():
     conn = criar_conexao() 
     cur = conn.cursor()
-    cls() 
+    
    
     cur.execute("""SELECT * FROM funcionario
                 ORDER BY id_funcionario""")
      
     consulta = cur.fetchall()
-    cabecalho('  LISTA DE FUNCIONARIOS  ')
+  
     print('')
     for linha in consulta:
         print(linha)
