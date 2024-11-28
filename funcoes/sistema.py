@@ -1,7 +1,5 @@
-
 from menu import  logar, gerenciamento_funcionarios,menu_up,gerenciamento_clientes,gerenciamento_pedidos,gerenciamento_sanduiche,gerenciamento_vendas
 from tratamento import input_int, cls
-
 import os
 import time
 
@@ -22,7 +20,6 @@ while True:
               print('Logado com sucesso!')
               cls()
               
-
               menu_up(lista_menu)
 
               while True:
@@ -38,25 +35,26 @@ while True:
                             print('Carregando...')
                             cls()
                             gerenciamento_funcionarios(lista_funcionario)
-                            menu_up(lista_menu)
+                            
 
                      elif escolha == 2:
 
                             print('Carregando...')
                             cls()
                             gerenciamento_clientes(lista_cliente)
-                            menu_up(lista_menu)
+                            
 
                      elif escolha ==3:
 
                             print('Carregando...')
                             cls()
                             gerenciamento_pedidos(lista_pedido)       
-                            menu_up(lista_menu)
+                            
 
                      elif escolha ==4:
-
+                            
                             print('Carregando...')
+                            cls()
                             gerenciamento_sanduiche(lista_sanduiche)
                             menu_up(lista_menu)
 
@@ -65,7 +63,7 @@ while True:
                             print('Carregando...')
                             cls()
                             gerenciamento_vendas(lista_venda)
-                            menu_up(lista_menu)
+                            
                             
                      else:
                             print("Valor invalido, Tente novamente")
@@ -76,5 +74,4 @@ while True:
               print('email ou senha invalidas!')
               print('Tente Novamente!')
               cls()
-              menu_up(lista_menu)
               

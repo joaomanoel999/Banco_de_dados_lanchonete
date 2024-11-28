@@ -71,3 +71,20 @@ def remover_cliente(id_cliente):
     cls()
     cur.close()
     conn.close()
+
+
+def buscar_cliente(nome):
+     conn = criar_conexao()
+     cur = conn.cursor()
+
+     
+     cur.execute(f"""SELECT * FROM clientes c WHERE nome_cliente LIKE '{nome}%'""")
+     consulta = cur.fetchall()
+
+     print('')
+     for linha in consulta:
+        print(linha)
+
+     cur.close()
+     conn.close()    
+     
