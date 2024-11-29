@@ -56,7 +56,7 @@ while True:
                             print('Carregando...')
                             cls()
                             gerenciamento_sanduiche(lista_sanduiche)
-                            menu_up(lista_menu)
+                            
 
                      elif escolha == 5:
                             

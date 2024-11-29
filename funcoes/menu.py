@@ -41,7 +41,7 @@ def gerenciamento_clientes(lista_cliente):
                     cls()
                     menu_up(lista_menu)
 
-     if opc ==1:
+     elif opc ==1:
                     print('carregando...')
                     cls()
                     nome_cliente = input("Nome do Cliente: ")
@@ -155,6 +155,13 @@ def gerenciamento_clientes(lista_cliente):
                         print('carregando...')
                         cls()
                         gerenciamento_clientes(lista_cliente)
+
+
+
+     else:
+             print('Opção invalida! Tente novamente')
+             cls()
+             gerenciamento_clientes(lista_cliente)
            
 
 
@@ -177,7 +184,7 @@ def gerenciamento_funcionarios(lista_funcionario):
                     menu_up(lista_menu)
 
 
-    if opc == 1:
+    elif opc == 1:
                     print('carregando...')
                     cls()
                     nome_funcionario = input("Nome do Funcionário: ")
@@ -269,6 +276,11 @@ def gerenciamento_funcionarios(lista_funcionario):
                         cls()
                         gerenciamento_funcionarios(lista_funcionario)
 
+    else:
+                    print('Opção invalida! Tente novamente')
+                    cls()
+                    gerenciamento_funcionarios(lista_funcionario)
+
 
 
 def gerenciamento_pedidos(lista_pedido):
@@ -289,7 +301,7 @@ def gerenciamento_pedidos(lista_pedido):
                     cls()
                     menu_up(lista_menu)
 
-     if opc== 1:
+     elif opc == 1:
                     print('carregando...')
                     cls()
                     id_funcionario = input_int('Digite o ID do Funcionario: ')
@@ -300,7 +312,7 @@ def gerenciamento_pedidos(lista_pedido):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de Clientes')
+                    print('2- Ir para Gerenciamento de Pedidos')
 
                     escolha = input_int('digite a opção: ')
                     if escolha == 1:
@@ -321,7 +333,7 @@ def gerenciamento_pedidos(lista_pedido):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de Clientes')
+                    print('2- Ir para Gerenciamento de Pedidos')
 
                     escolha = input_int('digite a opção: ')
                     if escolha == 1:
@@ -368,7 +380,7 @@ def gerenciamento_pedidos(lista_pedido):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de Clientes')
+                    print('2- Ir para Gerenciamento de Pedidos')
 
                     escolha = input_int('digite a opção: ')
 
@@ -379,7 +391,12 @@ def gerenciamento_pedidos(lista_pedido):
                     elif escolha ==2:
                             print('carregando...')
                             cls()
-                            gerenciamento_pedidos(lista_pedido)         
+                            gerenciamento_pedidos(lista_pedido)  
+
+     else:
+                    print('Opção invalida! Tente novamente')
+                    cls()
+                    gerenciamento_pedidos(lista_pedido)       
 
 
 
@@ -403,7 +420,7 @@ def gerenciamento_sanduiche(lista_sanduiche):
                     cls()
                     menu_up(lista_menu)
 
-    if opc ==1:
+    elif opc == 1:
                     print('carregando...')
                     cls()
                     nome_sanduiche = input("Nome do Sanduíche: ")
@@ -412,7 +429,7 @@ def gerenciamento_sanduiche(lista_sanduiche):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de sanduiches')
+                    print('2- Ir para Gerenciamento de Sanduiches')
 
                     escolha = input_int('digite a opção: ')
 
@@ -435,7 +452,7 @@ def gerenciamento_sanduiche(lista_sanduiche):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de sanduiches')
+                    print('2- Ir para Gerenciamento de Sanduiches')
 
                     escolha = input_int('digite a opção: ')
 
@@ -460,7 +477,7 @@ def gerenciamento_sanduiche(lista_sanduiche):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de sanduiches')
+                    print('2- Ir para Gerenciamento de Sanduiches')
 
                     escolha = input_int('digite a opção: ')
 
@@ -482,7 +499,7 @@ def gerenciamento_sanduiche(lista_sanduiche):
                     print('')
                     print('')
                     print('1- Ir para Menu Principal')
-                    print('2- Ir para Gerenciamento de sanduiches')
+                    print('2- Ir para Gerenciamento de Sanduiches')
 
                     escolha = input_int('digite a opção: ')
 
@@ -494,6 +511,11 @@ def gerenciamento_sanduiche(lista_sanduiche):
                             print('carregando...')
                             cls()
                             gerenciamento_sanduiche(lista_sanduiche)
+        
+    else:
+            print('Opção invalida! Tente novamente')
+            cls()
+            gerenciamento_sanduiche(lista_sanduiche)
     
 
 def gerenciamento_vendas(lista_venda):
@@ -517,7 +539,7 @@ def gerenciamento_vendas(lista_venda):
                     cls()
                     menu_up(lista_menu)
 
-    if opc == 1:
+    elif opc == 1:
                     print('carregando...')
                     cls()
                     id_venda = input_int('digite o ID do pedido: ')
@@ -526,7 +548,7 @@ def gerenciamento_vendas(lista_venda):
                     for p in forma_pagamento:
                             print(f'{c+1} - {p}') 
                             c +=1
-                    forma_pagamento = input('digite a forma de pagamento: ')
+                    forma_pagamento = input('digite o nome da forma de pagamento: ')
                     adicionar_venda(id_venda,valor_venda,forma_pagamento)
                     print('')
                     print('')
@@ -611,6 +633,11 @@ def gerenciamento_vendas(lista_venda):
                             print('carregando...')
                             cls()
                             gerenciamento_vendas(lista_venda)
+
+    else:
+            print('Opção invalida! Tente novamente')
+            cls()
+            gerenciamento_vendas(lista_venda) 
            
 
 def menu_up(lista_menu):
