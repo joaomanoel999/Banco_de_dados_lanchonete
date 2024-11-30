@@ -168,7 +168,7 @@ def gerenciamento_clientes(lista_cliente):
 def gerenciamento_funcionarios(lista_funcionario):
     lista_menu = []
     lista_funcionario = []
-    lista_funcionario = ['Menu Principal','Cadastrar Funcionario','Listar Funcionarios','Atualizar  Funcioario','Remover Funcionario']
+    lista_funcionario = ['Menu Principal','Cadastrar Funcionario','Listar Funcionarios','Atualizar  Funcionario','Remover Funcionario']
     cabecalho('Gerenciamento Funcionario')
     c = 0
     for item in lista_funcionario:
